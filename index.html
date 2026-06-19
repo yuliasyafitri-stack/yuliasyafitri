@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Yulia Syafitri</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- Grid Background Effect -->
+    <div class="fixed inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0"></div>
+
+    <!-- Glowing Orbs Background -->
+    <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-600/10 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b border-gray-800 bg-[#0b0f19]/80 backdrop-blur-md transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl overflow-hidden border border-gray-700 shadow-lg shadow-brand-500/10 group-hover:scale-110 transition-transform duration-300">
+                    <img src="profile.jpeg" alt="Yulia Syafitri" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100'">
+                </div>
+                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                    Yulia Syafitri
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors duration-200">Tentang</a>
+                <a href="#skill" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors duration-200">Skill</a>
+                <a href="#project" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors duration-200">Project</a>
+                <a href="#contact" class="px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-indigo-600 rounded-lg hover:shadow-lg hover:shadow-brand-500/20 transition-all duration-300 transform hover:-translate-y-0.5">Kontak</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-[#0b0f19] px-6 py-4 space-y-3 absolute w-full left-0 transition-all duration-300">
+            <a href="#about" class="block py-2 text-gray-300 hover:text-brand-500 transition-colors" onclick="toggleMenu()">Tentang</a>
+            <a href="#skill" class="block py-2 text-gray-300 hover:text-brand-500 transition-colors" onclick="toggleMenu()">Skill</a>
+            <a href="#project" class="block py-2 text-gray-300 hover:text-brand-500 transition-colors" onclick="toggleMenu()">Project</a>
+            <a href="#contact" class="block py-2.5 text-center font-semibold text-white bg-gradient-to-r from-brand-600 to-indigo-600 rounded-lg" onclick="toggleMenu()">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center py-20 px-4 md:px-8 z-10">
+        <div class="container mx-auto flex flex-col items-center text-center">
+            <!-- Profile Image Frame with Glowing Border -->
+            <div class="relative mb-8 group">
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 to-indigo-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <div class="relative w-44 h-44 rounded-full overflow-hidden border-4 border-[#0b0f19] bg-gray-900 flex items-center justify-center">
+                    <!-- Default dynamic SVG avatar placeholder if 'profile.jpeg' is missing -->
+                    <img id="profile-img" src="profile.jpeg" alt="Yulia Syafitri" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400'">
+                </div>
+                <span class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-4 border-[#0b0f19] rounded-full animate-bounce"></span>
+            </div>
+
+            <div class="max-w-3xl">
+                <!-- Greeting Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+                    Tersedia Untuk Project Baru
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+                    Halo, Saya Yulia Syafitri<span class="bg-gradient-to-r from-brand-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent"></span>
+                </h1>
+
+                <!-- Static Elegant Tagline -->
+                <p class="text-lg md:text-2xl text-brand-400 font-semibold mb-6">
+                    Web Developer & Mobile Developer
+                </p>
+
+                <p class="text-gray-400 max-w-xl mx-auto mb-10 text-sm md:text-base leading-relaxed">
+                    Web Developer berbakat yang mendedikasikan diri untuk merancang dan membangun website fungsional, responsif, dan bernilai estetika tinggi.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#project" class="w-full sm:w-auto px-8 py-4 font-bold text-white bg-gradient-to-r from-brand-600 to-indigo-600 rounded-xl hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <span>Lihat Project Saya</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 font-bold text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-800 border border-gray-700 hover:border-gray-600 rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <span>Hubungi Kontak</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 relative z-10 bg-gray-900/40 border-y border-gray-800" id="about">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-brand-500 to-indigo-500 rounded-2xl blur-md opacity-30"></div>
+                        <div class="relative glass-card p-6 rounded-2xl text-center max-w-[240px]">
+                            <i data-lucide="code-2" class="w-12 h-12 text-brand-400 mx-auto mb-4"></i>
+                            <h4 class="text-xl font-bold mb-1">2026</h4>
+                            <p class="text-xs text-gray-400">Aktif Berkarya & Kuliah</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="h-1 w-12 bg-brand-500 rounded-full"></span>
+                        <span class="text-sm font-bold uppercase tracking-wider text-brand-400">Tentang Saya</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Akademisi & Pengembang Berbakat</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Saya adalah seorang mahasiswa yang memiliki ketertarikan mendalam pada Bahasa Pemrograman <strong class="text-white font-semibold">PHP</strong>, pengembangan backend yang rapi, serta pembuatan aplikasi mobile dinamis menggunakan Flutter. 
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                        Melalui dedikasi tinggi, saya terus mengasah kemampuan teknis saya di bidang pembuatan website modern demi menghadirkan solusi teknologi cerdas yang dapat mempermudah pekerjaan sehari-hari.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-sm text-gray-300">Clean Code</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-sm text-gray-300">Responsive UI</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-sm text-gray-300">Modern Architecture</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-sm text-gray-300">Database Optimizer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Section -->
+    <section class="py-24 relative z-10" id="skill">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="flex justify-center items-center gap-3 mb-3">
+                    <span class="h-1 w-8 bg-brand-500 rounded-full"></span>
+                    <span class="text-sm font-bold uppercase tracking-wider text-brand-400">Keahlian</span>
+                    <span class="h-1 w-8 bg-brand-500 rounded-full"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Teknologi & Tools Utama</h2>
+                <p class="text-gray-400 mt-3 text-sm md:text-base">Kumpulan teknologi yang sering saya gunakan untuk mewujudkan ide kreatif menjadi aplikasi nyata.</p>
+            </div>
+
+            <!-- Modern Skill Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                
+                <!-- Skill 1 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-code-2" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">HTML</span>
+                    <span class="text-xs text-brand-400">Mahir & Semantik</span>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="palette" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">CSS & Tailwind</span>
+                    <span class="text-xs text-brand-400">Modern Layouts</span>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="braces" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">JavaScript</span>
+                    <span class="text-xs text-brand-400">Interactive DOM</span>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">PHP (OOP)</span>
+                    <span class="text-xs text-brand-400">Backend Logic</span>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">CodeIgniter</span>
+                    <span class="text-xs text-brand-400">Robust MVC</span>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">Flutter</span>
+                    <span class="text-xs text-brand-400">Mobile Apps</span>
+                </div>
+
+                <!-- Skill 7 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="chrome" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">Vue.js</span>
+                    <span class="text-xs text-brand-400">Reactive Frontend</span>
+                </div>
+
+                <!-- Skill 8 -->
+                <div class="glass-card p-6 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="git-branch" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-white mb-1">Git / GitHub</span>
+                    <span class="text-xs text-brand-400">Version Control</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section class="py-24 relative z-10 bg-gray-900/40 border-y border-gray-800" id="project">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="flex justify-center items-center gap-3 mb-3">
+                    <span class="h-1 w-8 bg-brand-500 rounded-full"></span>
+                    <span class="text-sm font-bold uppercase tracking-wider text-brand-400">Karya</span>
+                    <span class="h-1 w-8 bg-brand-500 rounded-full"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Project Unggulan</h2>
+                <p class="text-gray-400 mt-3 text-sm md:text-base">Berikut adalah beberapa proyek unggulan yang berhasil saya kembangkan sendiri.</p>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Project Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300 group flex flex-col h-full border border-gray-800 hover:border-brand-500/30">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-brand-500/10 text-brand-400 rounded-xl">
+                                <i data-lucide="package" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-900/50 text-brand-300 border border-brand-500/30">CodeIgniter</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Aplikasi Inventory</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Aplikasi inventori barang berbasis web, dilengkapi fitur kelola barang masuk, keluar, dan visualisasi grafik inventori real-time dengan MySQL.
+                        </p>
+                        <div class="flex items-center gap-2 mt-auto text-brand-400 hover:text-brand-300 text-sm font-bold cursor-pointer group-hover:translate-x-1 transition-all">
+                            <span>Detail Project</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300 group flex flex-col h-full border border-gray-800 hover:border-brand-500/30">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl">
+                                <i data-lucide="award" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-900/50 text-indigo-300 border border-indigo-500/30">PHP & Web</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Aplikasi E-Sertifikat</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Sistem pembuatan sertifikat online otomatis berbasis web. Mampu membuat file sertifikat PDF dinamis berdasar input database instan.
+                        </p>
+                        <div class="flex items-center gap-2 mt-auto text-indigo-400 hover:text-indigo-300 text-sm font-bold cursor-pointer group-hover:translate-x-1 transition-all">
+                            <span>Detail Project</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:translate-y-[-8px] transition-all duration-300 group flex flex-col h-full border border-gray-800 hover:border-brand-500/30">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl">
+                                <i data-lucide="school" class="w-6 h-6"></i>
+                            </div>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-900/50 text-cyan-300 border border-cyan-500/30">HTML / CSS</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Website Sekolah</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                            Portal web informasi sekolah dengan UI/UX interaktif, peta sekolah, kurikulum terbaru, serta formulir pendaftaran murid baru.
+                        </p>
+                        <div class="flex items-center gap-2 mt-auto text-cyan-400 hover:text-cyan-300 text-sm font-bold cursor-pointer group-hover:translate-x-1 transition-all">
+                            <span>Detail Project</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-24 relative z-10" id="contact">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <div class="flex justify-center items-center gap-3 mb-3">
+                    <span class="h-1 w-8 bg-brand-500 rounded-full"></span>
+                    <h2><span class="text-3xl md:text-4xl font-bold text-white">Hubungi Saya</span></h2>
+                    <span class="h-1 w-8 bg-brand-500 rounded-full"></span>
+                </div>
+            </div>
+
+            <!-- Contact Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                
+                <!-- Email Card -->
+                <a href="mailto:alwaysyuliasyafitri@gmail.com" class="glass-card p-8 rounded-2xl hover:bg-brand-500/10 hover:border-brand-500/30 transition-all duration-300 group flex flex-col items-center text-center border border-gray-800">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="mail" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">Email</span>
+                    <span class="font-bold text-white break-all text-sm">alwaysyuliasyafitri@gmail.com</span>
+                </a>
+
+                <!-- Instagram Card -->
+                <a href="https://instagram.com/lia_067" target="_blank" class="glass-card p-8 rounded-2xl hover:bg-pink-500/10 hover:border-pink-500/30 transition-all duration-300 group flex flex-col items-center text-center border border-gray-800">
+                    <div class="w-14 h-14 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="instagram" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">Instagram</span>
+                    <span class="font-bold text-white text-sm">@lia_067</span>
+                </a>
+
+                <!-- GitHub Card -->
+                <a href="https://github.com/yulia" target="_blank" class="glass-card p-8 rounded-2xl hover:bg-gray-700/20 hover:border-gray-600 transition-all duration-300 group flex flex-col items-center text-center border border-gray-800">
+                    <div class="w-14 h-14 rounded-xl bg-gray-500/10 text-gray-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="github" class="w-7 h-7"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">GitHub</span>
+                    <span class="font-bold text-white text-sm">github.com/yuliasyafitri</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-[#05080f] py-12 relative z-10 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-sm text-gray-500 mb-2">Created with passion by Yulia Syafitri</p>
+            <p class="text-xs text-gray-600">&copy; 2026 Portofolio Saya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-3 bg-brand-600 text-white rounded-full opacity-0 pointer-events-none hover:bg-brand-500 shadow-lg shadow-brand-500/30 transition-all duration-300 transform hover:-translate-y-1 z-40">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Functionality
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Scroll Event (Back to top & header blur effect)
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
